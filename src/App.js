@@ -22,14 +22,14 @@ class App extends Component {
   }
 
  getData = () =>{
-    fetch('http://localhost:3000/users')
+    fetch('http://localhost:3000/users' || 'https://exercise-app-client.herokuapp.com/users')
     .then(response => response.json())
     .then(json => this.setState({users:json}))
     .catch(err => console.log(err))
   }
 
   deleteExercise(id, index) {
-    fetch(`http://localhost:3000/users/${id}`, {
+    fetch(`http://localhost:3000/users/${id}` || `https://exercise-app-client.herokuapp.com/users${id}`, {
       method: "DELETE"
     })
     .then (data => {

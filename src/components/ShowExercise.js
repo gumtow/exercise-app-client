@@ -25,14 +25,14 @@ class ShowExercise extends Component {
     const { formInputs, userId, index } = this.props.location.state
     this.setState({formInputs:formInputs})
     this.setState({userId:userId})
-    fetch(`http://localhost:3000/users/${this.props.location.userId}`)
+    fetch(`http://localhost:3000/users/${this.props.location.userId}` || `https://exercise-app-client.herokuapp.com/users/${this.props.location.userId}`)
     .then(response => response.json())
     .then(json => this.setState({users:json}))
     .catch(err => console.log(err))
   }
 
   deleteExercise(id, index) {
-    fetch(`http://localhost:3000/users/${id}`, {
+    fetch(`http://localhost:3000/users/${id}` || `https://exercise-app-client.herokuapp.com/users/${id}`, {
       method: "DELETE"
     })
     .then (data => {

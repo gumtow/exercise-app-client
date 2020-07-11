@@ -19,7 +19,7 @@ class AddExercise extends Component {
     
       handleSubmit = (event) => {
         // event.preventDefault()
-        fetch('http://localhost:3000/users', {
+        fetch('http://localhost:3000/users' || 'https://exercise-app-client.herokuapp.com/users', {
           body: JSON.stringify(this.state.formInputs),
           method: 'POST',
           headers: {

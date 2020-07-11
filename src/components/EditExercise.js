@@ -23,7 +23,7 @@ class EditExercise extends Component {
     
       handleSubmit = (event) => {
         event.preventDefault()
-        fetch(`http://localhost:3000/users/${this.props.location.userId}`, {
+        fetch(`http://localhost:3000/users/${this.props.location.userId}` || `https://exercise-app-client.herokuapp.com/users/${this.props.location.userId}`, {
           body: JSON.stringify(this.state.formInputs),
           method: 'PUT',
           headers: {
